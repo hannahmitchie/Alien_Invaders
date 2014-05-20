@@ -1,19 +1,26 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
+<!-- Tells the computer reading it what version of HTML this is written in-->
 <html>
 <head>
+    <!--Provides and passes metadata between machines about the HTML coument-->
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <title>Hi Hello Alien Invaders</title>
+  <!--Title of document and what is displayed on the tab of the users browser -->
+    <title>Hi Hello Alien Invaders</title>
+    
+<!--These scripts files link the HTML to the Javascript game files and Jquery file-->
   <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'></script>
   <script src='js/engine.js'></script>
   <script src='js/game.js'></script>
   <script src='js/level.js'></script>
 
+    <!-- This is to stylise some of the game elements such as the background of the game and the wrapper, it's width and margin in the web page-->
   <style>
       #gameboard { background-color:black; }
-      #game-wrapper { margin:0 auto; width: 500px; }
+      #game-wrapper { margin:0 auto; width: 500px; } <!-- Controlling the width of page outside the game window-->
   </style>
 </head>
 <body>
+    <!--This specifies the size of the game window that is displayed in width and height the game is shown-->
   <div id='game-wrapper'>
     <canvas id='gameboard' width='500' height='500'></canvas>
   </div>

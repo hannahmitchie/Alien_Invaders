@@ -1,5 +1,7 @@
 //This defines what aliens are drawn and where abouts they are drawn on the board, 1 and 2 specifies the game level
 
+//Number in the leveldata matches the number alien
+
   var levelData = { 
      1:  [[0,0,0,0,0,0,0,0,0,0,0],
           [0,0,0,0,0,0,0,0,0,0,0],
@@ -40,7 +42,7 @@
       
   }
   
-  //this function looks to loads a new start game, and prompts the user to use the action of the spacebar 
+  //this function loads a new start game, and prompts the user to use the action of the spacebar to open the game board of level 1
 
   function startGame() {
       //The text on the loading opening screen
@@ -52,7 +54,7 @@
     Game.loop();
   }
 
-// This function looks to end the game, display some text for the user and if they user presses space, then Gameboard 1 (Level 1?) loads
+// This function ends the game, display some header and subheader for the user and if they user presses space, then Gameboard 1 loads again
 
   function endGame() {
     var screen = new GameScreen("Game Over","(press space to restart)",
@@ -62,7 +64,7 @@
     Game.loadBoard(screen);
   }
 
-// This function loads when the user has won the gamneand got through a certaina mount of levels
+// This function loads when the user has got through a certain amount of levels to win, and displays the header and subheading text. Pressing the space loads new gameboard 1
 
   function winGame() {
     var screen = new GameScreen("You Win!","(press space to restart)",

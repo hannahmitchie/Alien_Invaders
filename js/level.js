@@ -25,7 +25,9 @@
           [0,0,1,1,1,1,1,1,1,1,0]] };
 
 // This is data about the sprite image. 
-//The class of the image is defined for what javascript can refer to, the sx is the horiziontal position on the photoshop document, the sy is the y position (vertical), w is ther width of the image size and h is the height of the sprite. 
+//The sx holds the data of the horiziontal position on the photoshop document
+//the sy is the y position (vertical)
+//w holds the data of the width of the image size and h is the height of the sprite. 
 //cls is the class of the alien in html so it can be identified and the frames is how many animation stages the sprite has until back to the beginning again.
 
   var spriteData = {
@@ -38,7 +40,7 @@
   //this function looks to loads a new start game, and prompts the user to use the action of the spacebar 
 
   function startGame() {
-    var screen = new GameScreen("Alien Invaders","press space to start",
+    var screen = new GameScreen("Minion Invaders","press space to start", //The text on the loading opening screen
                                  function() {
                                      Game.loadBoard(new GameBoard(1));
                                  });

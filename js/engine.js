@@ -1,16 +1,22 @@
+//Each number corresponds with a keyboard code to a certain key, 37 is left key, 39 is the right key and 32 is space bar. These are all the same codes for all internet browsers so will work across all platforms
 var Game = new function() {                                                                  
   var KEY_CODES = { 37:'left', 39:'right', 32 :'fire' };
   this.keys = {};
-
-  this.initialize = function(canvas_dom,level_data,sprite_data,callbacks) {
+    
+    // This loads the specifications and attributes of the canvas size of the game specified in the HTML file, and specifies its a 2d game
+ this.initialize = function(canvas_dom,level_data,sprite_data,callbacks) {
     this.canvas_elem = $(canvas_dom)[0];
     this.canvas = this.canvas_elem.getContext('2d');
     this.width = $(this.canvas_elem).attr('width');
     this.height= $(this.canvas_elem).attr('height');
-
-    $(window).keydown(function(event) {
+     
+     //if statement, for if the correct above key codes are pressed
+     //if this is true (the keys are pressed correctly relating to the KEY_CODES) then the users sprite will move in relation to the KEY_CODES pressed 
+     $(window).keydown(function(event) {
       if(KEY_CODES[event.keyCode]) Game.keys[KEY_CODES[event.keyCode]] = true;
     });
+     
+     // this is an if statement if the wrong KEY_CODES are pressed, this means nothing will happen
 
     $(window).keyup(function(event) {
       if(KEY_CODES[event.keyCode]) Game.keys[KEY_CODES[event.keyCode]] = false;
@@ -33,12 +39,14 @@ var Game = new function() {
 var Sprites = new function() {
   this.map = { }; 
 
+    //links to the location of the sprite image document
   this.load = function(sprite_data,callback) { 
     this.map = sprite_data;
     this.image = new Image();
     this.image.onload = callback;
     this.image.src = 'images/sprites.png';
   };
+    
 
   this.draw = function(canvas,sprite,x,y,frame) {
     var s = this.map[sprite];
@@ -51,12 +59,12 @@ var GameScreen = function GameScreen(text,text2,callback) {
   this.step = function(dt) {
     if(Game.keys['fire'] && callback) callback();
   };
-
+//
   this.render = function(canvas) {
     canvas.clearRect(0,0,Game.width,Game.height);
     canvas.font = "bold 40px arial";
     var measure = canvas.measureText(text);  
-    canvas.fillStyle = "#FFFFFF";
+    canvas.fillStyle = "#C9F000";
     canvas.fillText(text,Game.width/2 - measure.width/2,Game.height/2);
     canvas.font = "bold 20px arial";
     var measure2 = canvas.measureText(text2);

@@ -1,17 +1,17 @@
-
+//Relates to all the aliens enemies and their speed they are at
 var AlienFlock = function AlienFlock() {
   this.invulnrable = true;
-  this.dx = 10; this.dy = 0;
+  this.dx = 10; this.dy = 0; //Storing a position, when aliens reach side of canvas the dy goes up by the speed
   this.hit = 1; this.lastHit = 0;
-  this.speed = 10;
+  this.speed = 10; //The speed the aliens are at
 
   this.draw = function() {};
 
-  this.die = function() {
-    if(Game.board.nextLevel()) {
-      Game.loadBoard(new GameBoard(Game.board.nextLevel())); 
+  this.die = function() { //If all aliens die function, it loads the new level
+    if(Game.board.nextLevel()) { 
+      Game.loadBoard(new GameBoard(Game.board.nextLevel())); //Loads the next level
     } else {
-      Game.callbacks['win']();
+      Game.callbacks['win'](); //else function, if no more levels left to load, user has won
     }
   }
 
@@ -56,8 +56,8 @@ Alien.prototype.draw = function(canvas) {
 
 Alien.prototype.die = function() {
   GameAudio.play('die');
-  this.flock.speed += 1;
-  this.board.remove(this);
+  this.flock.speed += 1; //When aliens dies, increase speed by 1
+  this.board.remove(this);//remove alien
 }
 
 Alien.prototype.step = function(dt) {

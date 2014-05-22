@@ -69,8 +69,8 @@ Alien.prototype.step = function(dt) {
     }
     this.x += this.mx;
     this.mx = 0;
-    this.frame = (this.frame+1) % 2;
-    if(this.x > Game.width - Sprites.map.alien1.w * 2) this.flock.hit = -1;
+    this.frame = (this.frame+1) % 4;
+    if(this.x > Game.width - Sprites.map.alien1.w * 4) this.flock.hit = -1;
     if(this.x < Sprites.map.alien1.w) this.flock.hit = 1;
   }
   return true;
@@ -78,7 +78,7 @@ Alien.prototype.step = function(dt) {
 
 Alien.prototype.fireSometimes = function() {
       if(Math.random()*100 < 10) {
-        this.board.addSprite('missile',this.x + this.w/2 - Sprites.map.missile.w/2,
+        this.board.addSprite('missile',this.x + this.w/4 - Sprites.map.missile.w/4,
                                       this.y + this.h, 
                                      { dy: 100 });
       }

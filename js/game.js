@@ -67,6 +67,7 @@ Alien.prototype.step = function(dt) {
     if(this.y == this.flock.max_y[this.x]) {
       this.fireSometimes();
     }
+//the amount of frames in an animation is able to be chnaged here, in this case 4
     this.x += this.mx;
     this.mx = 0;
     this.frame = (this.frame+1) % 4;

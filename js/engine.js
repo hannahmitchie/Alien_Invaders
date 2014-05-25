@@ -1,6 +1,6 @@
 //Each number corresponds with a keyboard code to a certain key, 37 is left key, 39 is the right key and 32 is space bar. These are all the same codes for all internet browsers so will work across all platforms
 var Game = new function() {                                                                  
-  var KEY_CODES = { 37:'left', 39:'right', 32 :'fire' };
+  var KEY_CODES = { 37:'left', 38:'up', 39:'right', 40:'down', 32 :'fire' };
   this.keys = {};
     
     // This loads the specifications and attributes of the canvas size of the game specified in the HTML file, and specifies its a 2d game
@@ -48,9 +48,11 @@ var Sprites = new function() {
   };
     
 
+    //this is where the canvas is used 
   this.draw = function(canvas,sprite,x,y,frame) {
     var s = this.map[sprite];
     if(!frame) frame = 0;
+      //s represents the source image and this is drawing on the HTML canvas
     canvas.drawImage(this.image, s.sx + frame * s.w, s.sy, s.w, s.h, x,y, s.w, s.h);
   };
 }

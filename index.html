@@ -5,7 +5,7 @@
     <!--Provides and passes metadata between machines about the HTML coument-->
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <!--Title of document and what is displayed on the tab of the users browser -->
-    <title>Minion Invaders</title>
+    <title>Pokemon Invaders</title>
     
 <!--These scripts files link the HTML to the Javascript game files and Jquery file-->
   <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'></script>
@@ -15,12 +15,13 @@
 
     <!-- This is to stylise some of the game elements such as the background of the game and the wrapper, it's width and margin in the web page-->
   <style>
-      #gameboard { background-color:black; }
+      #gameboard { background-image:url(images/background2.jpg); }
       #game-wrapper { margin:0 auto; width: 500px; } <!-- Controlling the width of page outside the game window-->
   </style>
 </head>
 <body>
     <!--This specifies the size of the game window that is displayed in width and height the game is shown-->
+    <!-- HTML Canvas element-->
   <div id='game-wrapper'>
     <canvas id='gameboard' width='500' height='500'></canvas>
   </div>

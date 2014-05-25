@@ -6,11 +6,11 @@
      1:  [[0,0,0,0,0,0,0,0,0,0,0],
           [0,0,0,0,0,0,0,0,0,0,0],
           [0,0,0,0,5,5,5,5,0,0,0],
-          [0,0,0,0,5,5,5,5,0,0,0],
-          [0,0,0,0,4,4,4,4,0,0,0],
-          [0,0,0,0,4,4,4,4,0,0,0],
           [0,0,0,0,6,6,6,6,0,0,0],
-          [0,0,0,0,6,6,6,6,0,0,0],
+          [0,0,0,0,4,4,4,4,0,0,0],
+          [0,0,0,0,0,0,0,0,0,0,0],
+          [0,0,0,0,0,0,0,0,0,0,0],
+          [0,0,0,0,0,0,0,0,0,0,0],
           [0,0,0,0,0,0,0,0,0,0,0],
           [0,0,0,0,0,0,0,0,0,0,0],
           [0,0,0,0,0,0,0,0,0,0,0]],
@@ -26,7 +26,7 @@
           [0,0,1,1,1,1,1,1,1,1,0],
           [0,0,1,1,1,1,1,1,1,1,0]] };
 
-// This is data about the sprite image. 
+// This is data defined from the sprite.PNG about individual sprites - attribute: value 
 //The sx holds the data of the horiziontal position on the photoshop document
 //the sy is the y position (vertical)
 //w holds the data of the width of the image size and h is the height of the sprite. 
@@ -49,7 +49,7 @@
 
   function startGame() {
       //The text on the loading opening screen
-    var screen = new GameScreen("Minion Invaders","press space to start", 
+    var screen = new GameScreen("Pokemon Catcher","press space to start and catch them all!", 
                                  function() {
                                      Game.loadBoard(new GameBoard(1));
                                  });

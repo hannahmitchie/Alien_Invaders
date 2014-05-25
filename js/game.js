@@ -98,10 +98,12 @@ Player.prototype.die = function() {
   GameAudio.play('die');
   Game.callbacks['die']();
 }
-
+//function of the keys
 Player.prototype.step = function(dt) {
   if(Game.keys['left']) { this.x -= 100 * dt; }
   if(Game.keys['right']) { this.x += 100 * dt; }
+  if(Game.keys['up']) { this.y -= 100 * dt; }
+  if(Game.keys['down']) { this.y += 100 * dt; }
 
   if(this.x < 0) this.x = 0;
   if(this.x > Game.width-this.w) this.x = Game.width-this.w;
@@ -125,7 +127,7 @@ var Missile = function Missile(opts) {
    this.dy = opts.dy;
    this.player = opts.player;
 }
-
+//This is where the canvas draws a missile 
 Missile.prototype.draw = function(canvas) {
    Sprites.draw(canvas,'missile',this.x,this.y);
 }

@@ -98,7 +98,7 @@ Player.prototype.die = function() {
   GameAudio.play('die');
   Game.callbacks['die']();
 }
-//function of the keys
+//function of the keys and determines the axis it moves at (x or y) and how much each press of a button (-100 or +100)
 Player.prototype.step = function(dt) {
   if(Game.keys['left']) { this.x -= 100 * dt; }
   if(Game.keys['right']) { this.x += 100 * dt; }
@@ -110,14 +110,16 @@ Player.prototype.step = function(dt) {
 
   this.reloading--;
 
-  if(Game.keys['fire'] && this.reloading <= 0 && this.board.missiles < 3) {
+    //Changes the amount of missiles fired after reloading 
+  if(Game.keys['fire'] && this.reloading <= 0 && this.board.missiles < 10) {
     GameAudio.play('fire');
     this.board.addSprite('missile',
                           this.x + this.w/2 - Sprites.map.missile.w/2,
                           this.y-this.h,
                           { dy: -100, player: true });
     this.board.missiles++;
-    this.reloading = 10;
+      //changes the speed that the missiles are fired
+    this.reloading = 7;
   }
   return true;
 }

@@ -90,7 +90,7 @@
 
 //Imports the sound files to specific actions within the game
   $(function() {
-    GameAudio.load({ 'fire' : 'media/Woosh-Mark_DiAngelo-4778593.ogg', 'die' : 'media/explosion.ogg' }, 
+    GameAudio.load({ 'fire' : 'media/Woosh-Mark_DiAngelo-4778593.ogg', 'die' : 'media/punch_or_whack_-Vladimir-403040765.ogg' }, 
                    function() { 
                        Game.initialize("#gameboard", levelData, spriteData,
                                       { "start": startGame,

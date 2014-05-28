@@ -62,14 +62,14 @@ var GameScreen = function GameScreen(text,text2,callback) {
   this.step = function(dt) {
     if(Game.keys['fire'] && callback) callback();
   };
-//
+// The canvas elements on the game - this is about the text displayed on the opening screen
   this.render = function(canvas) {
     canvas.clearRect(0,0,Game.width,Game.height);
-    canvas.font = "bold 40px arial"; //Font of the first heading "Alien Invaders"
+    canvas.font = "bold 40px Bebas Neue"; //Font of the first heading "Alien Invaders"
     var measure = canvas.measureText(text);  
-    canvas.fillStyle = "#C9F000"; //Chnages the font colour
+    canvas.fillStyle = "#FFFFFF"; //Chnages the font colour
     canvas.fillText(text,Game.width/2 - measure.width/2,Game.height/2);
-    canvas.font = "bold 20px arial"; //Font of the sub heading "Press start to play"
+    canvas.font = "bold 15px arial"; //Font of the sub heading "Press start to play"
     var measure2 = canvas.measureText(text2);
     canvas.fillText(text2,Game.width/2 - measure2.width/2,Game.height/2 + 40);
   };
@@ -142,6 +142,7 @@ var GameBoard = function GameBoard(level_number) {
                                  Game.width/2, // X
                                  Game.height - Sprites.map['player'].h - 10); // Y
 
+      //left and right barrier in game to stop user going off game map
     var flock = this.add(new AlienFlock());
     for(var y=0,rows=level.length;y<rows;y++) {
       for(var x=0,cols=level[y].length;x<cols;x++) {

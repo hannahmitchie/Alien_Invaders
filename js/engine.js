@@ -29,6 +29,7 @@ var Game = new function() {
 
   this.loadBoard = function(board) { Game.board = board; };
 
+    //changes the time between next sprite and step , 30 is the optimised speed for the game and best working without any lagging
   this.loop = function() { 
     Game.board.step(30/1000); 
     Game.board.render(Game.canvas);

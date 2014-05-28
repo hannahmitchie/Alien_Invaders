@@ -110,15 +110,18 @@ Player.prototype.step = function(dt) {
 
   this.reloading--;
 
-    //Changes the amount of missiles fired after reloading 
+//Changes the amount of missiles fired after reloading 
+    
   if(Game.keys['fire'] && this.reloading <= 0 && this.board.missiles < 10) {
+    //plays audio acossaited with action of fire
     GameAudio.play('fire');
     this.board.addSprite('missile',
                           this.x + this.w/2 - Sprites.map.missile.w/2,
                           this.y-this.h,
                           { dy: -100, player: true });
     this.board.missiles++;
-      //changes the speed that the missiles are fired
+      
+//changes the speed that the missiles are fired
     this.reloading = 7;
   }
   return true;

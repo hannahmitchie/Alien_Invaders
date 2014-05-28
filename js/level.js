@@ -16,6 +16,17 @@
           [0,0,0,0,0,0,0,0,0,0,0]],
      2:  [[0,0,0,0,0,0,0,0,0,0,0],
           [0,0,0,0,0,0,0,0,0,0,0],
+          [0,0,0,0,5,5,5,5,0,0,0],
+          [0,0,0,0,6,6,6,6,0,0,0],
+          [0,0,0,0,4,4,4,4,0,0,0],
+          [0,0,0,0,0,0,0,0,0,0,0],
+          [0,0,0,0,0,0,0,0,0,0,0],
+          [0,0,0,0,0,0,0,0,0,0,0],
+          [0,0,0,0,0,0,0,0,0,0,0],
+          [0,0,0,0,0,0,0,0,0,0,0],
+          [0,0,0,0,0,0,0,0,0,0,0]],
+     3:  [[0,0,0,0,0,0,0,0,0,0,0],
+          [0,0,0,0,0,0,0,0,0,0,0],
           [0,0,0,0,0,0,0,0,0,0,0],
           [0,0,0,0,0,0,0,0,0,0,0],
           [0,0,0,0,0,0,0,0,0,0,0],
@@ -40,7 +51,7 @@
     'alien5': { sx:0, sy: 160, w: 35, h: 41, cls: Alien, frames: 4 },
     'alien6': { sx:0, sy: 201, w: 35, h: 41, cls: Alien, frames: 4 },
     'player': { sx: 0,  sy: 36, w: 26, h: 17, cls: Player },
-    'missile': { sx: 0,  sy: 86, w: 3,  h: 14, cls: Missile },
+    'missile': { sx: 0,  sy: 242, w: 17,  h: 12, cls: Missile, frames: 4 },
    
       
   }
@@ -49,7 +60,7 @@
 
   function startGame() {
       //The text on the loading opening screen
-    var screen = new GameScreen("Pokemon Catcher","press space to start and catch them all!", 
+    var screen = new GameScreen("Catch the Aliens","press space to start and catch them all!", 
                                  function() {
                                      Game.loadBoard(new GameBoard(1));
                                  });
@@ -79,7 +90,7 @@
 
 //Imports the sound files to specific actions within the game
   $(function() {
-    GameAudio.load({ 'fire' : 'media/laser.ogg', 'die' : 'media/explosion.ogg' }, 
+    GameAudio.load({ 'fire' : 'media/Woosh-Mark_DiAngelo-4778593.ogg', 'die' : 'media/explosion.ogg' }, 
                    function() { 
                        Game.initialize("#gameboard", levelData, spriteData,
                                       { "start": startGame,

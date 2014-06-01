@@ -16,10 +16,10 @@
           [0,0,0,0,0,0,0,0,0,0,0]],
      2:  [[0,0,0,0,0,0,0,0,0,0,0],
           [0,0,0,0,0,0,0,0,0,0,0],
-          [0,0,0,0,5,5,5,5,0,0,0],
-          [0,0,0,0,6,6,6,6,0,0,0],
-          [0,0,0,0,4,4,4,4,0,0,0],
           [0,0,0,0,0,0,0,0,0,0,0],
+          [0,0,0,0,0,4,4,0,0,0,0],
+          [0,0,0,0,6,6,6,6,0,0,0],
+          [0,0,0,0,0,5,5,0,0,0,0],
           [0,0,0,0,0,0,0,0,0,0,0],
           [0,0,0,0,0,0,0,0,0,0,0],
           [0,0,0,0,0,0,0,0,0,0,0],
@@ -90,7 +90,7 @@
 
 //Imports the sound files to specific actions within the game
   $(function() {
-    GameAudio.load({ 'fire' : 'media/Woosh-Mark_DiAngelo-4778593.ogg', 'die' : 'media/punch_or_whack_-Vladimir-403040765.ogg' }, 
+    GameAudio.load({ 'fire' : 'media/Woosh-Mark_DiAngelo-4778593.ogg', 'die' : 'media/Pokémon Anime - Pokéball Sound Effects 6- Pokémon caught.ogg' }, 
                    function() { 
                        Game.initialize("#gameboard", levelData, spriteData,
                                       { "start": startGame,

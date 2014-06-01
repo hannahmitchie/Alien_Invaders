@@ -22,11 +22,13 @@ var Game = new function() {
       if(KEY_CODES[event.keyCode]) Game.keys[KEY_CODES[event.keyCode]] = false;
     });
 
+     //load sprite data for when 'start' is pressed to activate game
     this.level_data = level_data;
     this.callbacks = callbacks;
     Sprites.load(sprite_data,this.callbacks['start']);
   };
 
+//load game board    
   this.loadBoard = function(board) { Game.board = board; };
 
     //changes the time between next sprite and step , 30 is the optimised speed for the game and best working without any lagging
@@ -58,6 +60,7 @@ var Sprites = new function() {
   };
 }
 
+//displays the text and text 2 (Title and sub title on first screen) and activates the games when fire is hit (space)
 var GameScreen = function GameScreen(text,text2,callback) {
   this.step = function(dt) {
     if(Game.keys['fire'] && callback) callback();
@@ -65,11 +68,11 @@ var GameScreen = function GameScreen(text,text2,callback) {
 // The canvas elements on the game - this is about the text displayed on the opening screen
   this.render = function(canvas) {
     canvas.clearRect(0,0,Game.width,Game.height);
-    canvas.font = "bold 40px Bebas Neue"; //Font of the first heading "Alien Invaders"
+    canvas.font = "bold 20px Pokemon GB"; //Font of the first heading "Alien Invaders"
     var measure = canvas.measureText(text);  
     canvas.fillStyle = "#FFFFFF"; //Chnages the font colour
     canvas.fillText(text,Game.width/2 - measure.width/2,Game.height/2);
-    canvas.font = "bold 15px arial"; //Font of the sub heading "Press start to play"
+    canvas.font = "bold 10px Pokemon GB"; //Font of the sub heading "Press start to play"
     var measure2 = canvas.measureText(text2);
     canvas.fillText(text2,Game.width/2 - measure2.width/2,Game.height/2 + 40);
   };
@@ -81,9 +84,11 @@ var GameBoard = function GameBoard(level_number) {
   this.level = level_number;
   var board = this;
 
+//function that removes and add objects
   this.add =    function(obj) { obj.board=this; this.objects.push(obj); return obj; };
   this.remove = function(obj) { this.removed_objs.push(obj); };
 
+//adds sprites in positions
   this.addSprite = function(name,x,y,opts) {
     var sprite = this.add(new Sprites.map[name].cls(opts));
     sprite.name = name;
@@ -107,6 +112,7 @@ var GameBoard = function GameBoard(level_number) {
     return false;
   };
 
+    //remove object function
   this.step = function(dt) { 
     this.removed_objs = [];
     this.iterate(function() { 
@@ -119,11 +125,13 @@ var GameBoard = function GameBoard(level_number) {
     }
   };
 
+    // renders a canvas as a clear rectangle on the game board
   this.render = function(canvas) {
     canvas.clearRect(0,0,Game.width,Game.height);
     this.iterate(function() { this.draw(canvas); });
   };
 
+    
   this.collision = function(o1,o2) {
     return !((o1.y+o1.h-1<o2.y) || (o1.y>o2.y+o2.h-1) ||
              (o1.x+o1.w-1<o2.x) || (o1.x>o2.x+o2.w-1));
@@ -156,14 +164,15 @@ var GameBoard = function GameBoard(level_number) {
       }
     }
   };
-
+    //next level function that returns the game level and goes onto +1 level
   this.nextLevel = function() { 
     return Game.level_data[level_number + 1] ? (level_number + 1) : false 
   };
- 
+ //loads the level data according to the level number in level.js
   this.loadLevel(Game.level_data[level_number]);
 };
 
+//loads audio sounds or the game
 var GameAudio = new function() {
   this.load_queue = [];
   this.loading_sounds = 0;

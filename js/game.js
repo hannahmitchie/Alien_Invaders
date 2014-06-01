@@ -89,6 +89,7 @@ var Player = function Player(opts) {
   this.reloading = 0;
 }
 
+//uses HTML canvas, draws player on canvas
 Player.prototype.draw = function(canvas) {
    Sprites.draw(canvas,'player',this.x,this.y);
 }
@@ -109,8 +110,16 @@ Player.prototype.step = function(dt) {
   if(Game.keys['up']) { this.y -= 100 * dt; } //&& (verticalHeight < 2) { verticalHeight + 1 && // this.y -= 100 * dt; }
   if(Game.keys['down']) { this.y += 100 * dt; }// && (verticalHeight >0) { verticalHeight -1 &&// this.y += 100 * dt; }
 
-  if(this.x < 0) this.x = 0;
-  if(this.x > Game.width-this.w) this.x = Game.width-this.w;
+    //barrier on  side of game canvas to stop user going off screen
+ if(this.x < 0) this.x = 0;
+ if(this.y < 0) this.y = 0;
+ if(this.h < 0) this.h = 0;
+ if(this.x > Game.width-this.w) this.x = Game.width-this.w;
+ if(this.h > Game.height-this.h) this.h = Game.width-this.h;
+ //if(this.h < Game.height-this.h) this.h = Game.width-this.h;
+
+
+
 
   this.reloading--;
 
@@ -144,7 +153,8 @@ Missile.prototype.draw = function(canvas) {
 Missile.prototype.step = function(dt) {
    this.y += this.dy * dt;
 
-   var enemy = this.board.collide(this);
+   //This is a function used when a missile colldies with an ememy and then it dies
+    var enemy = this.board.collide(this);
    if(enemy) { 
      enemy.die();
      return false;

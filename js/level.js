@@ -60,7 +60,7 @@
 
   function startGame() {
       //The text on the loading opening screen
-    var screen = new GameScreen("Catch the Aliens","press space to start and catch them all!", 
+    var screen = new GameScreen("Catch the Pokemon","Press Space to start and catch them all!", 
                                  function() {
                                      Game.loadBoard(new GameBoard(1));
                                  });

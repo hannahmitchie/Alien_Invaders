@@ -71,11 +71,16 @@ var GameScreen = function GameScreen(text,text2,callback) {
     canvas.font = "bold 45px Pokemon Hollow "; //Font of the first heading "Alien Invaders"
     var measure = canvas.measureText(text);  
     canvas.fillStyle = "#e8d91a"; //Changes the font colour
-    canvas.fillText(text,Game.width/2 - measure.width/2,Game.height/2);
+    canvas.fillText(text,Game.width/2.5 - measure.width/2.5,Game.height/2.5); //number = position of text on screen
     canvas.font = "bold 10px Pokemon GB"; //Font of the sub heading "Press start to play"
     canvas.fillStyle = "#000000"; //Changes the font colour
     var measure2 = canvas.measureText(text2);
-    canvas.fillText(text2,Game.width/2 - measure2.width/2,Game.height/2 + 40);
+    canvas.fillText(text2,Game.width/2 - measure2.width/2,Game.height/2 + 100);
+      //+40 makes the next text 40 units below the other text
+      
+     canvas.font = "bold 10px Pokemon GB"; //Font of the sub heading "Press start to play"
+     canvas.fillStyle = "#000000";
+     canvas.fillText(scoretext,10,50);
   };
 };
 

@@ -58,6 +58,7 @@ Alien.prototype.die = function() {
   GameAudio.play('die');
   this.flock.speed += 1; //When aliens dies, increase speed by 1
   this.board.remove(this);//remove alien
+    this.board.score++; 
 }
 
 Alien.prototype.step = function(dt) {

@@ -77,10 +77,6 @@ var GameScreen = function GameScreen(text,text2,callback) {
     var measure2 = canvas.measureText(text2);
     canvas.fillText(text2,Game.width/2 - measure2.width/2,Game.height/2 + 100);
       //+40 makes the next text 40 units below the other text
-      
-     canvas.font = "bold 10px Pokemon GB"; //Font of the sub heading "Press start to play"
-     canvas.fillStyle = "#000000";
-     canvas.fillText(scoretext,10,50);
   };
 };
 

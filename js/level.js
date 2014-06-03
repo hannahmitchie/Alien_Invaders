@@ -52,6 +52,7 @@
     'alien6': { sx:0, sy: 201, w: 35, h: 41, cls: Alien, frames: 4 },
     'player': { sx: 0,  sy: 36, w: 26, h: 17, cls: Player },
     'missile': { sx: 0,  sy: 242, w: 17,  h: 12, cls: Missile, frames: 4 },
+   
   
    
       

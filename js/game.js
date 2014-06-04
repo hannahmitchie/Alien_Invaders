@@ -50,16 +50,18 @@ var Alien = function Alien(opts) {
   this.mx = 0;
 }
 
+//draws the aliens onto the canvas 
 Alien.prototype.draw = function(canvas) {
   Sprites.draw(canvas,this.name,this.x,this.y,this.frame);
 }
 
+//the function delivered when the alien is hit and 'dies'
 Alien.prototype.die = function() {
   GameAudio.play('die');
-  this.flock.speed += 1; //When aliens dies, increase speed by 1
+  this.flock.speed += 2; //When aliens dies, increase speed by 1 (orginally) now 2
   this.board.remove(this);//remove alien
 }
-
+//this randomises the amount the aliens fire back, which increases the more aliens hit and 'die'
 Alien.prototype.step = function(dt) {
   this.mx += dt * this.flock.dx;
   this.y += this.flock.dy;
@@ -77,6 +79,7 @@ Alien.prototype.step = function(dt) {
   return true;
 }
 
+//the function for the randomising of amount the aliens fire back
 Alien.prototype.fireSometimes = function() {
       if(Math.random()*100 < 10) {
         this.board.addSprite('missile',this.x + this.w/4 - Sprites.map.missile.w/4,
@@ -94,7 +97,7 @@ Player.prototype.draw = function(canvas) {
    Sprites.draw(canvas,'player',this.x,this.y);
 }
 
-
+//looks fir audio associated with 'die' function to play
 Player.prototype.die = function() {
   GameAudio.play('die');
   Game.callbacks['die']();

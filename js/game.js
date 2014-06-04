@@ -115,7 +115,7 @@ Player.prototype.step = function(dt) {
  if(this.y < 0) this.y = 0;
  if(this.h < 0) this.h = 0;
  if(this.x > Game.width-this.w) this.x = Game.width-this.w;
- if(this.h > Game.height-this.h) this.h = Game.width-this.h;
+ if(this.y > Game.height-this.h) this.y = Game.width-this.h;
  //if(this.h < Game.height-this.h) this.h = Game.width-this.h;
 
 

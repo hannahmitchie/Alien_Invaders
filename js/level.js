@@ -50,7 +50,7 @@
     'alien4': { sx:0, sy: 119, w: 35, h: 41, cls: Alien, frames: 4 },
     'alien5': { sx:0, sy: 160, w: 35, h: 41, cls: Alien, frames: 4 },
     'alien6': { sx:0, sy: 201, w: 35, h: 41, cls: Alien, frames: 4 },
-    'player': { sx: 0,  sy: 36, w: 26, h: 17, cls: Player },
+    'player': { sx: 0,  sy: 266, w: 34, h: 43, cls: Player, frames:4 },
     'missile': { sx: 0,  sy: 242, w: 17,  h: 12, cls: Missile, frames: 4 },
    
   
@@ -73,7 +73,7 @@
 // This function ends the game, display some header and subheader for the user and if they user presses space, then Gameboard 1 loads again
 
   function endGame() {
-    var screen = new GameScreen("Game Over","(press space to restart)",
+    var screen = new GameScreen("Game Over","(press space to restart and play again!)",
                                  function() {
                                      Game.loadBoard(new GameBoard(1));
                                  });
@@ -83,7 +83,7 @@
 // This function loads when the user has got through a certain amount of levels to win, and displays the header and subheading text. Pressing the space loads new gameboard 1
 
   function winGame() {
-    var screen = new GameScreen("You Win!","(press space to restart)",
+    var screen = new GameScreen("Congratulations, You Win!","(press space to play again and catch them all!)",
                                  function() {
                                      Game.loadBoard(new GameBoard(1));
                                  });

@@ -72,11 +72,11 @@ var GameScreen = function GameScreen(text,text2,callback) {
     var measure = canvas.measureText(text);  
     canvas.fillStyle = "#e8d91a"; //Changes the font colour
     canvas.fillText(text,Game.width/2 - measure.width/2,Game.height/2); //number = position of text on screen
-    canvas.font = "bold 10px Pokemon GB"; //Font of the sub heading "Press start to play"
-    canvas.fillStyle = "#000000"; //Changes the font colour
+    canvas.font = "bold 8px Pokemon GB"; //Font of the sub heading "Press start to play"
+    canvas.fillStyle = "#FFFFFF"; //Changes the font colour
     var measure2 = canvas.measureText(text2);
     canvas.fillText(text2,Game.width/2 - measure2.width/2,Game.height/2 + 100);
-      //+40 makes the next text 40 units below the other text
+      //+100 makes the next text 100 units below the other text
   };
 };
 

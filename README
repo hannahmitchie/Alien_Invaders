@@ -1,4 +1,11 @@
-A Simple HTML5 Game To-be used in a Tutorial
+Catch the Pokemon!
 
-Slides up at:
-http://www.slideshare.net/cykod/html5-game-development-introduction-5815787
+A simple HTML 5 Canvas/Javascript reverse engineered version of Alien Invaders.
+
+This game includes 6 levels, with pokemon invaders and up, down, left and right functionality. It has also been sped up slightly and more missiles in between reloading to help  with the added speed.
+
+All sounds are copyright free except for the pokeball sound which is found here:
+
+ThexFoondom. 2014. Pokémon Anime - Pokéball Sound Effects 6: Pokémon caught [Online]. [Accessed: 25th June 2014] Available from: http://www.youtube.com/watch?v=o1DNJB3tOO4
+
+If this game was to go public and make money, then this game would have to change to combat copyright laws. At the moment though, due to it not making money and being public, I am allowed to use Pokemon.
